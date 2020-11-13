@@ -325,7 +325,7 @@ module Ransack
           @join_dependency.instance_variable_get(:@join_root).children.push found_association
 
           # Builds the arel nodes properly for this association
-          @join_dependency.send(:construct_tables!, jd.instance_variable_get(:@join_root))
+          # @join_dependency.send(:construct_tables!, jd.instance_variable_get(:@join_root))
 
           # Leverage the stashed association functionality in AR
           @object = @object.joins(jd)

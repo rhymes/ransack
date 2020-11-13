@@ -36,10 +36,13 @@ module Ransack
       end
 
       def get_attribute
+        table = context.table_for(parent)
+        return nil unless table
+
         if is_alias_attribute?
-          context.table_for(parent)[parent.base_klass.attribute_aliases[attr_name]]
+          table[parent.base_klass.attribute_aliases[attr_name]]
         else
-          context.table_for(parent)[attr_name]
+          table[attr_name]
         end
       end
 
